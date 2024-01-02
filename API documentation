@@ -1,0 +1,84 @@
+How to access various end points of the API:
+
+1. **Create a New Note:**
+   - **URL:** `/api/posts`
+   - **Method:** POST
+   - **Request Body Format:**
+     ```json
+     {
+         "title": "Note Title",
+         "content": "Note Content"
+     }
+     ```
+   - **Response Format:**
+     ```json
+     {
+         "id": 1,
+         "title": "Note Title",
+         "content": "Note Content",
+         "created": "2024-01-02T12:34:56.789Z",
+         "modified": "2024-01-02T12:34:56.789Z"
+     }
+     ```
+
+2. **Retrieve All Notes:**
+   - **URL:** `/allNotes`
+   - **Method:** GET
+   - **Response Format:**
+     ```json
+     [
+         {
+             "id": 1,
+             "title": "Note Title",
+             "content": "Note Content",
+             "created": "2024-01-02T12:34:56.789Z",
+             "modified": "2024-01-02T12:34:56.789Z"
+         },
+         // Additional notes...
+     ]
+     ```
+
+3. **Retrieve a Note by ID:**
+   - **URL:** `/post/:id` (Replace `:id` with the actual note ID)
+   - **Method:** GET
+   - **Response Format:**
+     ```json
+     {
+         "id": 1,
+         "title": "Note Title",
+         "content": "Note Content",
+         "created": "2024-01-02T12:34:56.789Z",
+         "modified": "2024-01-02T12:34:56.789Z"
+     }
+     ```
+
+4. **Update a Note by ID:**
+   - **URL:** `/posts/:id` (Replace `:id` with the actual note ID)
+   - **Method:** PUT
+   - **Request Body Format:**
+     ```json
+     {
+         "title": "Updated Note Title",
+         "content": "Updated Note Content"
+     }
+     ```
+   - **Response Format:**
+     ```json
+     {
+         "n": 1,
+         "nModified": 1,
+         "ok": 1
+     }
+     ```
+
+5. **Delete a Note by ID:**
+   - **URL:** `/posts/:id` (Replace `:id` with the actual note ID)
+   - **Method:** DELETE
+   - **Response Format:**
+     ```json
+     {
+         "message": "Post deleted"
+     }
+     ```
+
+Note: The API includes basic authentication. Make sure to include the correct credentials (username: "Hardiknotes", password: "SkillStreet") in the request headers.

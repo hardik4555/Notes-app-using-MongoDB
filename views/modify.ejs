@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Note</title>
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <style>
+    #text-area {
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      <%= heading %>
+    </h1>
+
+    <% if (locals.post) { %>
+      <!-- Edit Form -->
+      <form id="editNoteForm" method="post" action="/api/posts/<%=post.id%>">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<%=post.title %>" required>
+
+        <label for="content">Content:</label>
+        <textarea id="text-area" name="content" rows="10" required><%=post.content %></textarea>
+
+        <button class="full-width" type="submit">
+          <%= submit %>
+        </button>
+      </form>
+    <% } else { %>
+      <!-- New Note Form -->
+      <form id="newNoteForm" method="post" action="/api/posts">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Title" required>
+
+        <label for="content">Content:</label>
+        <textarea id="text-area" name="content" rows="10" placeholder="Enter your note here" required></textarea>
+
+        <button class="full-width" type="submit">
+          <%= submit %>
+        </button>
+      </form>
+    <% } %>
+
+  </div>
+</body>
+
+</html>

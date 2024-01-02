@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardik's Notes</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <!-- Add any additional styles or scripts here -->
+</head>
+
+<body>
+  <div class="container">
+    <h1>Hardik's Notes</h1>
+    <a id="newPostBtn" href="/new">New Note</a>
+    <ul id="notesList">
+      <!-- Loop through each note -->
+      <% posts.forEach(post => { %>
+        <li class="note">
+          <h2 class="note-title">
+            <%= post.title%>
+          </h2>
+          <div class="note-meta">
+            <small class="note-created">
+              Created: <%= post.created %>
+            </small>
+            <small class="note-modified">
+              Last edit: <%= post.modified  %>
+            </small>
+          </div>
+          <p class="note-content">
+            <%= post.content %>
+          </p>
+          <div class="note-actions">
+            <!-- Link to edit a note -->
+            <a class="edit" href="/edit/<%=post.id%>">Edit</a>
+            <!-- Link to delete a note -->
+            <a class="delete" href="/api/posts/delete/<%=post.id%>" onclick=<%console.log(post.id)%>>Delete</a>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+
+</html>
