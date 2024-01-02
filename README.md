@@ -22,3 +22,6 @@ API.js -> A REST Api which uses MongoDB as a database and performs CRUD operatio
 Server.js -> The server of the application which is reponsible for rendering pages on demand and asking API server to do operations on it's database according to the situation.
 API documentation has all the endpoints of API.js , API.js endpoints requires basic authentication for which USERNAME : Hardiknotes and PASSWORD: SkillStreet.
 
+Screenshot of the website: ![image](https://github.com/hardik4555/Notes-app-using-MongoDB/assets/95064351/14aac7a1-77b4-49f1-937b-43e11534f634)
+
+
